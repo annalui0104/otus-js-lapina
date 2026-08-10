@@ -2,6 +2,8 @@
  * @jest-environment jsdom
  */
 
+const initParagraphApp = require("../src/homework/lesson4/paragraph");
+
 describe("Приложение с параграфами", () => {
     let input;
     let button;
@@ -9,34 +11,21 @@ describe("Приложение с параграфами", () => {
 
     const renderApp = () => {
         document.body.innerHTML = `
-      <div id="paragraphs">
-        <p>Первый</p>
-        <p>Второй</p>
-        <p>Третий</p>
-      </div>
+    <div id="paragraphs">
+      <p>Первый</p>
+      <p>Второй</p>
+      <p>Третий</p>
+    </div>
 
-      <input id="input" />
-      <button id="button" hidden>Добавить</button>
-    `;
+    <input id="input" />
+    <button id="button" hidden>Добавить</button>
+  `;
 
         input = document.querySelector("#input");
         button = document.querySelector("#button");
         container = document.querySelector("#paragraphs");
 
-        input.addEventListener("input", () => {
-            button.hidden = input.value === "";
-        });
-
-        button.addEventListener("click", () => {
-            const paragraph = document.createElement("p");
-            paragraph.textContent = input.value;
-
-            container.append(paragraph);
-
-            if (container.querySelectorAll("p").length > 4) {
-                container.querySelector("p").remove();
-            }
-        });
+        initParagraphApp();
     };
 
     const enterText = (text) => {
