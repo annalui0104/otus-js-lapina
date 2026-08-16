@@ -3,6 +3,26 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/homework/lesson4/paragraph.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 60,
+        "functions": 60,
+        "lines": 60,
+        "statements": 60
+      }
+    }
+  },
   "directories": {
     "test": "tests"
   },
@@ -190,12 +210,12 @@
     "yocto-queue": "^0.1.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.1",
+    "globals": "^17.11.0",
+    "husky": "^9.1.7",
     "jest": "^30.4.2",
     "jest-environment-jsdom": "^30.4.1"
-  },
-  "scripts": {
-    "test": "jest",
-    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
